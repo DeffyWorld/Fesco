@@ -1,0 +1,1511 @@
+// Import
+@import "_variables";
+@import "_mixins";
+@import "_reset";
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------
+// -Header-
+// --------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+.header {
+    min-height: 750px;
+    background-color: $bg-main;
+    overflow: hidden;
+
+
+    &__row {
+        height: 70px;
+        border-bottom: 1px solid white;
+    }
+
+
+    &__logo {
+        font-family: Yesteryear;
+        font-size: 37px;
+        color: white;
+        margin-top: 10px;
+        margin-left: 5px;
+    }
+
+
+    &__nav {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 22px;
+        margin-right: 9px;
+
+        &_item {
+            margin-left: 31px;
+
+            &_active {
+                a {
+                    font-family: Vollkorn;
+                    font-size: 15px;
+                    text-decoration: none;
+                    color: black;
+
+                    &:hover {
+                        color: black;
+                    }
+                }
+            }
+
+            a {
+                font-family: Vollkorn;
+                font-size: 15px;
+                text-decoration: none;
+                color: white;
+                -webkit-transition-duration: 0.25s;
+                transition-duration: 0.25s;
+    
+                &:hover {
+                    color: black;
+                }
+            }
+        }
+    }
+
+
+
+    &__main {
+        // ...
+
+
+        &_icon {
+            text-align: center;
+            margin-top: 143px;
+        }
+
+        &_title {
+            font-family: Yesteryear;
+            font-size: 56px;
+            color: $brand-color;
+            margin-top: 50px;
+            margin-left: 10px;
+        }
+
+        &_description {
+            font-family: Vollkorn;
+            font-size: 20px;
+            color: white;
+            margin-top: 1px;
+            margin-left: 2px;
+        }
+
+        &_text {
+            font-family: Vollkorn;
+            font-size: 17px;
+            color: black;
+            margin-top: 38px;
+            line-height: 1.67;
+            letter-spacing: -0.16px;
+        }
+    }
+}
+
+
+// Hamburger start
+#menuToggle
+{
+  display: block;
+  position: relative;
+  top: -40px;
+  left: -15px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+#menuToggle a:hover
+{
+  color: tomato;
+}
+
+
+#menuToggle input
+{
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  
+  background: #cdcdcd;
+  border-radius: 3px;
+  
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+              opacity 0.55s ease;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one.
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 370px;
+  height: 764px;
+
+  right: -200px;
+  margin: -51px 80% 0 -80%;
+  padding: 40px;
+  padding-top: 60px;
+  overflow: hidden; 
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's slide it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+}
+// Hamburger end
+
+
+
+//Breakpoints
+
+// xxl
+@media (min-width: 1401px) {
+
+}
+
+// xl
+@media (max-width: 1400px) {
+
+}
+
+// lg
+@media (max-width: 1200px) {
+    
+}
+
+// md
+@media (max-width: 992px) {
+    .header {
+        min-height: 680px;
+
+
+        &__main {
+            // ...
+    
+    
+            &_title {
+                text-align: center;
+                font-size: 55px;
+                line-height: 60px;
+                margin-top: 50px;
+            }
+    
+            &_description {
+                text-align: center;
+                margin-top: 13px;
+            }
+    
+            &_text {
+                text-align: center;
+            }
+        }
+    }
+}
+
+// sm
+@media (max-width: 768px) {
+    .header__main_title {
+        font-size: 50px;
+        line-height: 55px;
+    }
+}
+
+// none
+@media (max-width: 576px) {
+    #menuToggle
+    {
+      left: -20px;
+    }
+}
+
+@media (max-width: 380px) {
+    #menuToggle
+    {
+      left: -25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------------------------------------------------
+// -About-
+// -------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+.about {
+    min-height: 883px;
+    margin-left: 5px;
+
+
+    &__title {
+        text-align: center;
+        font-family: Yesteryear;
+        font-size: 56px;
+        color: $brand-color;
+        margin-top: 105px;
+        margin-left: 11px;
+    }
+
+    &__text {
+        font-family: Raleway;
+        font-size: 15px;
+        line-height: 2.4;
+        color: $text;
+        text-align: center;
+        letter-spacing: -0.25px;
+
+        &_up {
+            margin-top: 20px;
+            line-height: 2.4;
+            letter-spacing: -0.25px;
+        }
+        &_middle {
+            margin-top: 36px;
+            letter-spacing: -0.776px;
+            // word-wrap: break-word;
+        }
+        &_down {
+            margin-top: 36px;
+            margin-bottom: 60px;
+        }
+    }
+
+
+
+    &__contact {
+        min-height: 420px;
+        background-color: $bg-dark;
+        margin-top: -208px;
+
+
+        &_title {
+            font-family: Vollkorn;
+            font-size: 25px;
+            color: $brand-color;
+            margin-top: 23px;
+        }
+        &_text {
+            font-family: Raleway;
+            font-size: 13px;
+            line-height: 1.62;
+            color: white;
+            margin-top: 5px;
+
+            &-sr {
+                margin-top: 1px;
+            }
+        }
+        &_title-light {
+            font-family: Raleway;
+            font-size: 15px;
+            color: white;
+            margin-top: 18px;
+            margin-bottom: 2px;
+        }
+        &_map {
+            width: 56px;
+            height: 22px;
+            font-family: Vollkorn;
+            font-size: 13px;
+            color: $brand-color;
+            border-bottom: 1px solid $brand-color;
+            margin-top: 5px;
+        }
+        &_button {
+            width: 171px;
+            height: 43px;
+            background-color: $bg-dark;
+            border: 1px solid $button-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+            margin-left: 70px;
+            
+            p {
+                margin-bottom: 2px;
+                font-family: Raleway;
+                font-size: 15px;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $button-color;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+                p {
+                    color: black;
+                    -webkit-transition-duration: 0.4s;
+                    transition-duration: 0.4s;
+                }
+            }
+        }
+    }
+
+
+
+    &__decoration {
+        min-height: 600px;
+        background-color: $medium-gray;
+        margin-top: 30px;
+    }
+}
+
+
+
+//Breakpoints
+
+// xxl
+@media (min-width: 1401px) {
+
+}
+
+// xl
+@media (max-width: 1400px) {
+
+}
+
+// lg
+@media (max-width: 1200px) {
+
+}
+
+// md
+@media (max-width: 992px) {
+    .about {
+        min-height: 680px;
+    }
+}
+
+// sm
+@media (max-width: 768px) {
+
+}
+
+// none
+@media (max-width: 576px) {
+
+}
+
+@media (max-width: 380px) {
+
+}
+
+
+
+
+
+
+        // -----------------------------------------------------------------------------------------------------------
+        // -Contact-
+        //------------------------------------------------------------------------------------------------------------
+
+
+        .contact {
+            min-height: 310px;
+            background-color: $bg-dark;
+
+
+            &__title {
+                font-family: Vollkorn;
+                font-size: 25px;
+                color: $brand-color;
+                margin-top: 50px;
+            }
+            &__text {
+                max-width: 310px;
+                font-family: Raleway;
+                font-size: 13px;
+                line-height: 1.62;
+                color: white;
+                margin-top: 7px;
+            }
+            &__adress {
+
+                &_title {
+                    font-family: Raleway;
+                    font-size: 15px;
+                    color: white;
+                    margin-top: 22px;
+                    margin-bottom: 15px;
+                }
+                &_adress {
+                    font-family: Raleway;
+                    font-size: 13px;
+                    line-height: 8px;
+                    color: white;
+                    margin-top: 5px;
+                }
+            }
+            &__map {
+                width: 56px;
+                height: 13px;
+                font-family: Vollkorn;
+                font-size: 13px;
+                color: $brand-color;
+                border-bottom: 1px solid $brand-color;
+                margin-left: 24px;
+            }
+
+            &__hours {
+                margin-top: 50px;
+                margin-left: 2vw;
+
+                &_title {
+                    font-family: Raleway;
+                    font-size: 18px;
+                    color: white;
+                }
+                &_text {
+                    font-family: Vollkorn;
+                    font-size: 13px;
+                    color: white;
+                    margin-top: 20px;
+                    
+                    p {
+                        line-height: 10px;
+                    }
+                }
+            }
+            &__button {
+                width: 171px;
+                height: 43px;
+                background-color: $bg-dark;
+                border: 1px solid $button-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 30px;
+                margin-left: 2vw;
+                margin-bottom: 60px;
+                
+                p {
+                    margin-bottom: 2px;
+                    font-family: Raleway;
+                    font-size: 15px;
+                    color: white;
+                }
+    
+                &:hover {
+                    background-color: $button-color;
+                    -webkit-transition-duration: 0.4s;
+                    transition-duration: 0.4s;
+    
+                    p {
+                        color: black;
+                        -webkit-transition-duration: 0.4s;
+                        transition-duration: 0.4s;
+                    }
+                }
+            }
+        }
+
+
+        @media (max-width: 768px) {
+            .contact {
+
+
+                &__map {
+                    margin-left: 0px;
+                }
+                &__hours {
+                    margin-left: 0px;
+                }
+                &__button {
+                    margin-left: 0px;
+                }
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact {
+                padding-left: 25px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .contact {
+                padding-left: 5px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------
+// -Specialities-
+// ------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+.specialities {
+    min-height: 600px;
+    background-color: $bg-main;
+
+
+    &__title {
+        font-family: Yesteryear;
+        font-size: 56px;
+        text-align: center;
+        color: white;
+        margin-top: 52px;
+    }
+
+    &__text {
+        font-family: Vollkorn;
+        font-size: 15px;
+        line-height: 1.67; 
+        letter-spacing: -0.2px;
+        color: black;
+        text-align: center;
+        margin-top: 14px;
+    }
+
+    &__quick-menu {
+        margin-top: 77px;
+
+        &_item {
+            
+
+            &_img {
+                
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            &_text {
+                height: 60px;
+                background-color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    font-family: Vollkorn;
+                    font-size: 15px;
+                    color: $brand-color;
+                    margin-bottom: 0px;
+                }
+            }
+        }
+    }
+}
+
+
+
+//Breakpoints
+
+// xxl
+@media (min-width: 1401px) {
+
+}
+
+// xl
+@media (max-width: 1400px) {
+
+}
+
+// lg
+@media (max-width: 1200px) {
+
+}
+
+// md
+@media (max-width: 992px) {
+    .specialities__quick-menu {
+        margin-top: 50px;
+        padding-bottom: 70px;
+
+        &_item {
+            margin-top: 20px;
+        }
+    }
+}
+
+// sm
+@media (max-width: 768px) {
+    
+}
+
+// none
+@media (max-width: 576px) {
+    .specialities {
+        min-height: 600px;
+    
+    
+        &__title {
+            font-size: 50px;
+            margin-top: 52px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------------------------------------------------
+// -Menu-
+// -------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+.menu {
+    min-height: 1510px;
+    background-color: $bg-dark;
+
+
+    &__title {
+        font-family: Yesteryear;
+        font-size: 56px;
+        color: $brand-color;
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 2px;
+    }
+    &__description {
+        font-family: Vollkorn;
+        font-size: 15px;
+        letter-spacing: -0.4px;
+        color: white;
+        text-align: center;
+        margin-top: 11px;
+    }
+    &__catalog-title {
+        font-family: Raleway;
+        font-size: 25px;
+        font-weight: 500;
+        text-align: center;
+        color: $brand-color;
+        margin-top: 62px;
+    }
+
+    &__catalog {
+       margin-top: 25px;
+
+        &_item {
+            margin-top: 35px;
+
+            &_title {
+                font-family: Raleway;
+                font-size: 15px;
+                font-weight: 500;
+                letter-spacing: 0.2px;
+                color: white;
+                margin-left: 2px
+            }
+            &_text {
+                @include size(295px, 37px);
+                font-family: Vollkorn;
+                font-size: 13px;
+                line-height: 1.92;
+                color: white;
+                margin-top: 4px;
+                margin-left: 3px;
+            }
+            &_cost {
+                font-family: Raleway;
+                font-size: 34px;
+                font-weight: 500;
+                color: $brand-color;
+                margin-left: auto;
+                margin-top: 2px;
+            }
+        }
+    }
+
+
+    &__button {
+        width: 200px;
+        height: 54px;
+        // margin-left: 18%;
+        margin-top: 77px;
+        background-color: $button-color;
+        border: 1px solid $button-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+
+        &_block {
+            display: flex;
+            justify-content: center;
+        }
+
+        p {
+            margin-bottom: 2px;
+            font-family: Raleway;
+            font-size: 15px;
+            color: black;
+        }
+
+        &:hover {
+            background-color: $bg-dark;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+
+            p {
+                color: white;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+            }
+        }
+    }
+}
+
+
+
+//Breakpoints
+
+// xxl
+@media (min-width: 1401px) {
+
+}
+
+// xl
+@media (max-width: 1400px) {
+
+}
+
+// lg
+@media (max-width: 1200px) {
+
+}
+
+// md
+@media (max-width: 992px) {
+
+}
+
+// sm
+@media (max-width: 768px) {
+
+}
+
+// none
+@media (max-width: 576px) {
+    .menu {
+
+
+        &__catalog-title {
+            font-size: 22px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------
+// -Book-
+// ------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+.book {
+    min-height: 490px;
+    background-color: $bg-main;
+
+
+    &__title {
+        font-family: Yesteryear;
+        font-size: 56px;
+        color: white;
+        text-align: center;
+        margin-top: 58px;
+    }
+    &__description {
+        font-family: Vollkorn;
+        font-size: 15px;
+        letter-spacing: -0.2px;
+        color: black;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+
+
+    &__forms {
+        margin-top: 67px;
+
+
+        &_item {
+            // ...
+
+            &_title {
+                font-family: Raleway;
+                font-size: 15px;
+                font-weight: 500;
+                color: white;
+            }
+            &_form {
+                // ...
+
+                input {
+                    width: 100%;
+                    height: 60px;
+                    background-color: white;
+                    font-family: Raleway;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #151824;
+                    padding-left: 6%;
+                    padding-right: 3%;
+                    margin-top: -9px;
+                }
+
+
+                select {
+                    width: 100%;
+                    height: 60px;
+                    background-color: white;
+                    border-radius: 0px;
+                    margin-top: 12px;
+                    font-family: Raleway;
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #151824;
+                    padding-left: 5%;
+                    padding-right: 3%;
+                }
+            }
+        }
+    }
+
+
+    &__button {
+        width: 175px;
+        height: 50px;
+        background-color: $button-color;
+        border: 1px solid $button-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+
+        &_block {
+            display: flex;
+            justify-content: center;
+        }
+
+        p {
+            margin-bottom: 2px;
+            font-family: Raleway;
+            font-size: 15px;
+            color: black;
+        }
+
+        &:hover {
+            background-color: $bg-dark;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+
+            p {
+                color: white;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+            }
+        }
+    }
+}
+
+
+
+//Breakpoints
+
+// xxl
+@media (min-width: 1401px) {
+
+}
+
+// xl
+@media (max-width: 1400px) {
+
+}
+
+// lg
+@media (max-width: 1200px) {
+
+}
+
+// md
+@media (max-width: 992px) {
+    
+}
+
+// sm
+@media (max-width: 768px) {
+
+}
+
+// none
+@media (max-width: 576px) {
+
+}
+
+@media (max-width: 380px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------
+// -Footer-
+// ------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+.footer {
+    min-height: 319px;
+    background-color: $bg-dark;
+
+
+
+    &__adress {
+        // ...
+
+        &_title {
+            font-family: Raleway;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            margin-top: 36px;
+        }
+        &_adress {
+            font-family: Vollkorn;
+            font-size: 13px;
+            font-weight: normal;
+            color: white;
+            margin-top: 20px;
+        }
+        &_post {
+            font-family: Vollkorn;
+            font-size: 13px;
+            font-weight: normal;
+            color: white;
+            margin-top: 15px;
+        }
+        &_button {
+            width: 140px;
+            height: 44px;
+            background-color: $bg-dark;
+            border: 1px solid $button-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 24px;
+            margin-left: 0px;
+            
+            p {
+                margin-bottom: 2px;
+                font-family: Vollkorn;
+                font-size: 13px;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $button-color;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+                p {
+                    color: black;
+                    -webkit-transition-duration: 0.4s;
+                    transition-duration: 0.4s;
+                }
+            }
+        }
+    }
+
+
+
+    &__hours {
+        // ...
+
+        &_title {
+            font-family: Raleway;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            margin-top: 36px;
+            margin-left: 5px;
+        }
+        &_text {
+            font-family: Vollkorn;
+            font-size: 13px;
+            font-weight: normal;
+            color: white;
+            margin-top: 20px;
+            margin-left: 4px;
+        }
+        &_button {
+            width: 221px;
+            height: 44px;
+            background-color: $bg-dark;
+            border: 1px solid $button-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 24px;
+            margin-left: 0px;
+            
+            p {
+                margin-bottom: 2px;
+                font-family: Raleway;
+                font-size: 15px;
+                font-weight: 500;
+                color: white;
+            }
+
+            &:hover {
+                background-color: $button-color;
+                -webkit-transition-duration: 0.4s;
+                transition-duration: 0.4s;
+
+                p {
+                    color: black;
+                    -webkit-transition-duration: 0.4s;
+                    transition-duration: 0.4s;
+                }
+            }
+        }
+    } 
+
+
+
+    &__social {
+        // ...
+
+        &_title {
+            font-family: Raleway;
+            font-size: 15px;
+            font-weight: 500;
+            color: white;
+            margin-top: 36px;
+            margin-left: 6px;
+        }
+        &_description {
+            font-family: Vollkorn;
+            font-size: 13px;
+            line-height: 1.92;
+            color: white;
+            margin-top: 17px;
+            margin-left: 3px;
+        }
+        &_icons {
+            max-width: 221px;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 32px;
+
+            &_icon {
+                width: 44px;
+                height: 44px;
+                background-color: $bg-dark;
+                border: 1px solid $button-color;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i {
+                    color: white;
+                }
+            }
+        }
+    }
+
+
+
+
+    &__watermark {
+        font-family: Raleway;
+        font-size: 15px;
+        font-weight: 500;
+        color: $brand-color;
+        margin-top: 49px;
+    }
+}
+
+
+
+//Breakpoints
+
+// xxl
+@media (min-width: 1401px) {
+
+}
+
+// xl
+@media (max-width: 1400px) {
+
+}
+
+// lg
+@media (max-width: 1200px) {
+
+}
+
+// md
+@media (max-width: 992px) {
+    .footer {
+        // ...
+
+        &__adress {
+            // ...
+
+            &_adress {
+                margin-top: 8px;
+            }
+            &_post {
+                margin-top: 8px;
+            }
+        }
+    }
+}
+
+// sm
+@media (max-width: 768px) {
+    .footer {
+        &__adress {
+            // ...
+    
+            &_title {
+                margin-left: 0px;
+            }
+            &_adress {
+                margin-top: 37px;
+                margin-left: 5vw;
+            }
+            &_post {
+                margin-top: 37px;
+                margin-left: 2vw;
+            }
+            &_button {
+                margin-left: 4vw;
+            }
+        }
+    
+    
+    
+        &__hours {
+            // ...
+    
+            &_title {
+                margin-left: 0px;
+            }
+            &_text {
+                margin-top: 37px;
+                margin-left: 4vw;
+            }
+            &_button {
+                margin-left: 2.5vw;
+            }
+        } 
+    
+    
+    
+        &__social {
+            // ...
+    
+            &_title {
+                margin-left: 0px;
+                margin-top: 20px;
+            }
+            &_description {
+                margin-left: 0vw;
+            }
+            &_icons {
+                
+
+                &_icon {
+                    
+                    i {
+
+                    }
+                }
+            }
+        }
+    
+    
+    
+    
+        &__watermark {
+            margin-top: 30px;
+        }
+    }
+}
+
+// none
+@media (max-width: 576px) {
+    .footer {
+        &__adress {
+            // ...
+    
+            &_title {
+                margin-left: 30px;
+            }
+            &_adress {
+                margin-top: 20px;
+                margin-left: 30px;
+            }
+            &_post {
+                margin-top: 5px;
+                margin-left: 30px;
+            }
+            &_button {
+                margin-left: 30px;
+            }
+        }
+    
+    
+    
+        &__hours {
+            // ...
+    
+            &_title {
+                margin-left: 30px;
+            }
+            &_text {
+                margin-top: 37px;
+                margin-left: 30px;
+            }
+            &_button {
+                margin-left: 30px;
+            }
+        } 
+    
+    
+    
+        &__social {
+            // ...
+    
+            &_title {
+                margin-left: 30px;
+                margin-top: 20px;
+            }
+            &_description {
+                margin-left: 30px;
+            }
+            &_icons {
+                margin-top: 20px;
+                margin-left: 30px;
+
+                &_icon {
+                    
+                    i {
+
+                    }
+                }
+            }
+        }
+    
+    
+    
+    
+        &__watermark {
+            margin-top: 40px;
+            margin-left: 30px;
+            padding-bottom: 20px;
+        }
+    }
+}
+
+@media (max-width: 380px) {
+
+}
